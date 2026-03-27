@@ -3,11 +3,15 @@
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "onCreateCommand": "bash .devcontainer/install-syncthing.sh",
   "postStartCommand": "syncthing &",
+  "postAttachCommand": "pgrep -x syncthing > /dev/null || nohup syncthing --home=/workspaces/.syncthing > /dev/null 2>&1 &",
   "forwardPorts": [8384],
   "portsAttributes": {
     "8384": {
       "label": "Syncthing UI",
       "onAutoForward": "openBrowser"
+    },
+    "22000": {
+      "label": "Syncthing"
     }
   }
 }
