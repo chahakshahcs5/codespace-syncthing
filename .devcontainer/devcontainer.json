@@ -1,0 +1,13 @@
+{
+  "name": "Syncthing Dev Environment",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "onCreateCommand": "bash .devcontainer/install-syncthing.sh",
+  "postStartCommand": "syncthing &",
+  "forwardPorts": [8384],
+  "portsAttributes": {
+    "8384": {
+      "label": "Syncthing UI",
+      "onAutoForward": "openBrowser"
+    }
+  }
+}
